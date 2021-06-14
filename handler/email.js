@@ -4,6 +4,7 @@ const juice = require('juice');
 const { convert } = require('html-to-text');
 const util = require('util');
 const emailConfig = require('../config/email');
+const process = require('process');
 
 
 let transport = nodemailer.createTransport({
@@ -17,7 +18,7 @@ let transport = nodemailer.createTransport({
 
 //generar html
 const generarHTML = (archivo, opciones = {}) => {
-  const html = pug.renderFile(`${__dirname}/../views/email/${archivo}.pug`, opciones);
+  const html = pug.renderFile(`${process.cwd()}/views/email/${archivo}.pug`, opciones);
   return juice(html);
 }
 exports.enviar = async (opciones) => {
