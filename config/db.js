@@ -4,7 +4,7 @@ require('dotenv').config({path: 'variables.env'});
 
 // Option 2: Passing parameters separately (other dialects)
 const db = new Sequelize(
-    process.env.BD_nombre,
+    process.env.BD_NOMBRE,
     process.env.BD_USER,
     process.env.BD_PASS,
     {
